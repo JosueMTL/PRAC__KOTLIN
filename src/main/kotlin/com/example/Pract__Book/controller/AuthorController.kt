@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import java.util.Optional
 
 @RestController
 @RequestMapping("/author")
@@ -23,6 +24,11 @@ class AuthorController {
     @GetMapping
     fun list ():List <Author>{
         return authorService.list()
+    }
+
+    @GetMapping("/{id}")
+    fun listOne (@PathVariable id: Long) :Optional<Author>{
+        return authorService.listOne(id)
     }
 
     //Peticiones post - Clase controller

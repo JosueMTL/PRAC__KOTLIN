@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
+import java.util.Optional
 
 @Service
 class AuthorService {
@@ -14,6 +15,10 @@ class AuthorService {
 
     fun list ():List<Author>{
         return authorRepository.findAll()
+    }
+
+    fun listOne (id: Long):Optional<Author>{
+        return authorRepository.findById(id)
     }
 
     //PETICIONES POST
@@ -51,4 +56,5 @@ class AuthorService {
             throw ResponseStatusException(HttpStatus.NOT_FOUND,ex.message)
         }
     }
+
 }
