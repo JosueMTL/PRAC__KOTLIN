@@ -38,7 +38,7 @@ class BookService {
         }
     }
 
-    //Petición put
+    // clase service -Petición put
     fun update(modelo: Book): Book {
         try {
             bookRepository.findById(modelo.id)
@@ -50,7 +50,7 @@ class BookService {
         }
     }
 
-    // Delete by id
+    // clase service - Delete by id
     fun delete(id: Long?): Boolean? {
         try {
             val response = bookRepository.findById(id)
